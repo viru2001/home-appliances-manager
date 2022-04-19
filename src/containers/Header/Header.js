@@ -13,7 +13,7 @@ import classes from "./Header.module.scss";
 
 export class Header extends Component {
   static propTypes = {
-    toggleSideDrawer: PropTypes.func
+    toggleSideDrawer: PropTypes.func,
   };
 
   render() {
@@ -28,7 +28,7 @@ export class Header extends Component {
               </NavigationItem>
               <NavigationItem>
                 <a
-                  href="https://github.com/AbdelrahmanSE/home-automation-ui"
+                  href="https://github.com/viru2001/home-appliances-manager"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -49,10 +49,7 @@ export class Header extends Component {
 }
 
 const mapDispatchToProps = {
-  toggleSideDrawer
+  toggleSideDrawer,
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Header);
+export default connect(null, mapDispatchToProps)(Header);

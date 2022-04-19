@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import Navigation from "../../components/Layout/Navigation/Navigation";
 import NavigationItem from "../../components/Layout/Navigation/NavigationItem/NavigationItem";
@@ -14,7 +14,7 @@ import Backdrop from "../../components/UI/Backdrop/Backdrop";
 
 export class SideDrawer extends Component {
   static propTypes = {
-    isOpen: PropTypes.bool
+    isOpen: PropTypes.bool,
   };
 
   render() {
@@ -26,26 +26,32 @@ export class SideDrawer extends Component {
 
     return (
       <div className={sideDrawerContainerClasses.join(" ")}>
-        <Backdrop show={this.props.isOpen} onClick={this.props.toggleSideDrawer} />
-        <Button className={classes.CloseDrawerBtn} onClick={this.props.toggleSideDrawer}>
+        <Backdrop
+          show={this.props.isOpen}
+          onClick={this.props.toggleSideDrawer}
+        />
+        <Button
+          className={classes.CloseDrawerBtn}
+          onClick={this.props.toggleSideDrawer}
+        >
           <FontAwesomeIcon icon={faWindowClose} />
         </Button>
         <div className={classes.SideDrawer}>
           <div className={classes.Title}>Menu</div>
           <Navigation>
-              <NavigationItem>
-                <NavLink to="/">Rooms</NavLink>
-              </NavigationItem>
-              <NavigationItem>
-                <a
-                  href="https://github.com/AbdelrahmanSE/home-automation-ui"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Github
-                </a>
-              </NavigationItem>
-            </Navigation>
+            <NavigationItem>
+              <NavLink to="/">Rooms</NavLink>
+            </NavigationItem>
+            <NavigationItem>
+              <a
+                href="https://github.com/viru2001/home-appliances-manager"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github
+              </a>
+            </NavigationItem>
+          </Navigation>
         </div>
       </div>
     );
@@ -53,14 +59,11 @@ export class SideDrawer extends Component {
 }
 
 const mapStateToProps = state => ({
-  isOpen: state.ui.openSideDrawer
+  isOpen: state.ui.openSideDrawer,
 });
 
 const mapDispatchToProps = {
-  toggleSideDrawer
+  toggleSideDrawer,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SideDrawer);
+export default connect(mapStateToProps, mapDispatchToProps)(SideDrawer);
